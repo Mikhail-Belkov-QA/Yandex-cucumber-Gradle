@@ -1,7 +1,11 @@
 package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -25,7 +29,7 @@ public class BaseTest {
     /**
      * осуществление первоначальной настройки
      */
-   @Tag("UiYandex")
+  /* @Tag("UiYandex")
     @BeforeAll
     @Step("Запуск страницы")
       public static void setup() {
@@ -54,7 +58,7 @@ public class BaseTest {
     /**
      * осуществление выхода из аккаунта с последующим закрытием окна браузера
      */
-    @AfterAll
+   /* @AfterAll
     @Step ("Выход из аккаунта")
     public static void tearDown() {
         step ("Заходим в iFrame menu", () ->
@@ -67,10 +71,10 @@ public class BaseTest {
         step ("Нажимаем на кнопку Выход", () ->
         {     profilePage.userLogout();});
         driver.quit();
-    }
+    }*/
 
-
-  /*  @Given("Осуществление первоначальной настройки")
+//@Before
+   @Given("Осуществление первоначальной настройки")
     public void setup() {
         WebDriverManager.chromedriver().setup();
         //создание экземпляра драйвера
@@ -89,7 +93,24 @@ public class BaseTest {
         step ("Нажимаем на кнопку Email", () ->
         { BaseTest.loginPage.inputLoginEmailBtn();});
 
-    }*/
+    }
+//@After
+    @Then("Выходим из аккаунта")
+    public static void tearDown() {
+        step ("Заходим в iFrame menu", () ->
+        {     profilePage.entryMenu();});
+
+        step ("Получаем отображаемый логин и сравниваем его с логином из файлов настройки", () ->
+        {   String user = BaseTest.profilePage.getUserId();
+            Assert.assertEquals(test.ConfProperties.getProperty("login"), user); });
+
+        step ("Нажимаем на кнопку Выход", () ->
+        {     profilePage.userLogout();});
+        driver.quit();
+    }
+
+
+
 }
 
 

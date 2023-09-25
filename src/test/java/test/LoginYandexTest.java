@@ -1,40 +1,44 @@
 package test;
 
 
+import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static test.BaseTest.loginPage;
 
 @Tag("UiYandex")
-public class LoginYandexTest extends BaseTest {
+
+
+public class LoginYandexTest { //extends BaseTest {
 
     /**
      * тестовый метод для осуществления аутентификации
      */
-    @Test
+  /* @Test
     @DisplayName("Мой тест - авторизация аккаунта Яндекс (по почте)")
-   @Step ("Ввод логина")
-
+   @Step ("Ввод логина")*/
+    @When("Заполняем логин и пароль")
     public void loginTest() {
         //получение доступа к методам класса LoginPage для взаимодействия с элементами страницы
         //значение login/password берутся из файла настроек по аналогии с chromedriver
         //и loginpage
         //вводим логин
         step ("Задать логин", () ->
-     { BaseTest.loginPage.inputLogin(ConfProperties.getProperty("login"));});
+     { loginPage.inputLogin(ConfProperties.getProperty("login"));});
           //нажимаем кнопку входа
         step ("Нажать на кнопку", () ->
-        {  BaseTest.loginPage.clickLoginBtn();});
+        {  loginPage.clickLoginBtn();});
           //вводим пароль
         step ("Задать пароль", () ->
-        {  BaseTest.loginPage.inputPasswd(ConfProperties.getProperty("password"));});
+        {  loginPage.inputPasswd(ConfProperties.getProperty("password"));});
 
         //нажимаем кнопку входа
         step ("Нажать на кнопку", () ->
-        {   BaseTest.loginPage.clickLoginBtn();});
+        {   loginPage.clickLoginBtn();});
 
 
     }
