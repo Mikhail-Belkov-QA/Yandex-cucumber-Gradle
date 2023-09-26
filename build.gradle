@@ -37,7 +37,7 @@ dependencies {
     implementation(platform('org.junit:junit-bom:5.9.3'))
    implementation('org.junit.jupiter:junit-jupiter')
     implementation 'io.cucumber:cucumber-java:7.1.0'
-
+    implementation 'ru.yandex.qatools.allure:allure-cucumber-jvm-adaptor:1.6.4'
     implementation 'io.qameta.allure:allure-cucumber-jvm:2.20.1'
     implementation 'org.seleniumhq.selenium:selenium-java:3.14.0'
     implementation 'io.github.bonigarcia:webdrivermanager:5.5.2'
@@ -46,6 +46,11 @@ dependencies {
             'org.junit.jupiter:junit-jupiter:5.9.3',
            'io.qameta.allure:allure-selenide:2.19.0'
     )
+    implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
+        implementation 'io.qameta.allure:allure-cucumber5-jvm:2.13.3'
+        implementation 'io.cucumber:cucumber-java:5.7.0'
+        implementation 'io.cucumber:cucumber-testng:5.7.0'
+    implementation 'io.cucumber:cucumber-junit:7.14.0'
     implementation(
            'com.codeborne:selenide:6.14.0',
             'org.junit.jupiter:junit-jupiter:5.9.3',
@@ -75,3 +80,13 @@ tasks.register('UiYandex', Test) {
         includeTags("smoke")
     }
 }
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--plugin', 'io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm', '--strict',  \
+                     '--glue', 'h ellocucumbe r', 'src/test/resources ']
+        }
+    }}
