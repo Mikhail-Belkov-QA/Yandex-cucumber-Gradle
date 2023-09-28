@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Tue Sep 26 10:01:01 GMT+04:00 2023","Tue Sep 26 10:01:01 GMT+04:00 2023","85","","test.LoginYandexTest","","test.LoginYandexTest","loginTest","Мой тест - авторизация аккаунта Яндекс (по почте)",""

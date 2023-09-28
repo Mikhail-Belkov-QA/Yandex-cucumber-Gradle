@@ -38,18 +38,20 @@ dependencies {
    implementation('org.junit.jupiter:junit-jupiter')
     implementation 'io.cucumber:cucumber-java:7.1.0'
     implementation 'ru.yandex.qatools.allure:allure-cucumber-jvm-adaptor:1.6.4'
-    implementation 'io.qameta.allure:allure-cucumber-jvm:2.20.1'
+   // implementation 'io.qameta.allure:allure-cucumber-jvm:2.20.1'
     implementation 'org.seleniumhq.selenium:selenium-java:3.14.0'
     implementation 'io.github.bonigarcia:webdrivermanager:5.5.2'
+    implementation 'io.qameta.allure:allure-cucumber5-jvm:2.13.3'
    implementation(
             'com.codeborne:selenide:6.14.0',
             'org.junit.jupiter:junit-jupiter:5.9.3',
            'io.qameta.allure:allure-selenide:2.19.0'
     )
-    implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
-        implementation 'io.qameta.allure:allure-cucumber5-jvm:2.13.3'
+   // implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
+      //  implementation 'io.qameta.allure:allure-cucumber5-jvm:2.13.3'
         implementation 'io.cucumber:cucumber-java:5.7.0'
       //  implementation 'io.cucumber:cucumber-testng:5.7.0'
+    implementation 'io.qameta.allure:allure-cucumber5-jvm:2.24.0'
     implementation 'io.cucumber:cucumber-junit:7.14.0'
     implementation(
            'com.codeborne:selenide:6.14.0',

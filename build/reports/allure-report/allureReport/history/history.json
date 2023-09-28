@@ -1,0 +1,1 @@
+{"12e8d549ef3cfba4e23f8c3f1986da9e":{"statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"dbdeb4cba8ea1647","status":"broken","statusDetails":"java.lang.NullPointerException","time":{"start":1695708061616,"stop":1695708061701,"duration":85}}]}}

@@ -15,7 +15,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver; }
-    @FindBy(xpath = "//*[contains(@data-t, 'button:default')]")
+    @FindBy(xpath = "//button[@class = 'Button2 Button2_checked Button2_size_l Button2_view_default']")
     private WebElement loginEmail;
 //button[@data-t = 'button:default']"
     /**
