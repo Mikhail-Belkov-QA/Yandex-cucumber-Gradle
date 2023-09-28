@@ -33,7 +33,7 @@ compileTestJava {
 dependencies {
  //   implementation("io.github.bonigarcia:webdrivermanager:5.4.1")
     implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-   implementation 'junit:junit-dep:4.5'
+  // implementation 'junit:junit-dep:4.5'
     implementation(platform('org.junit:junit-bom:5.9.3'))
    implementation('org.junit.jupiter:junit-jupiter')
     implementation 'io.cucumber:cucumber-java:7.1.0'
@@ -49,7 +49,7 @@ dependencies {
     implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
         implementation 'io.qameta.allure:allure-cucumber5-jvm:2.13.3'
         implementation 'io.cucumber:cucumber-java:5.7.0'
-        implementation 'io.cucumber:cucumber-testng:5.7.0'
+      //  implementation 'io.cucumber:cucumber-testng:5.7.0'
     implementation 'io.cucumber:cucumber-junit:7.14.0'
     implementation(
            'com.codeborne:selenide:6.14.0',
@@ -71,6 +71,9 @@ test {
 
         }
     }
+tasks.test {
+    useJUnitPlatform()
+}
 tasks.register('UiYandex', Test) {
     testLogging {
         events "passed", "skipped", "failed", "standardOut", "standardError"
