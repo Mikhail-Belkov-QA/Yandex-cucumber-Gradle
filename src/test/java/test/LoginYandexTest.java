@@ -16,7 +16,7 @@ import static test.BaseTest.loginPage;
 public class LoginYandexTest { //extends BaseTest {
 
     /**
-     * тестовый метод для осуществления аутентификации
+     * тестовый метод для осуществления аутентификации аккаунта
      */
   /* @Test
     @DisplayName("Мой тест - авторизация аккаунта Яндекс (по почте)")
