@@ -3,6 +3,7 @@ package test;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,9 +27,20 @@ public class BaseTest {
     protected static LoginPage loginPage;
     protected static ProfilePage profilePage;
     protected static WebDriver driver;
+    public static void webDriver() {
+        WebDriverManager.chromedriver().setup();
+    }
     /**
      * осуществление первоначальной настройки
      */
+  /*  public static void wait(int ms) {
+        try {
+            Thread.sleep(ms);
+        }
+        catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }*/
   /* @Tag("UiYandex")
     @BeforeAll
     @Step("Запуск страницы")
@@ -76,7 +88,7 @@ public class BaseTest {
 //@Before
    @Given("Осуществление первоначальной настройки")
     public void setup() {
-        WebDriverManager.chromedriver().setup();
+       webDriver();
         //создание экземпляра драйвера
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
@@ -88,6 +100,7 @@ public class BaseTest {
         //получение ссылки на страницу входа из файла настроек
         step ("Открываем стартовую страницу", () ->
         {     driver.get(ConfProperties.getProperty("loginpage"));});
+     //   wait(2000);
 
         //Нажатие на кнопку Email
         step ("Нажимаем на кнопку Email", () ->
@@ -107,11 +120,10 @@ public class BaseTest {
         step ("Нажимаем на кнопку Выход", () ->
         {     profilePage.userLogout();});
         driver.quit();
-    }
+    }}
 
 
 
-}
 
 
 

@@ -85,6 +85,8 @@ tasks.register('UiYandex', Test) {
         includeTags("smoke")
     }
 }
+
+
 task cucumber() {
     dependsOn assemble, compileTestJava
     doLast {
