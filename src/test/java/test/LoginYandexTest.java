@@ -22,7 +22,7 @@ public class LoginYandexTest { //extends BaseTest {
     @DisplayName("Мой тест - авторизация аккаунта Яндекс (по почте)")
    @Step ("Ввод логина")*/
     @When("Заполняем логин и пароль")
-     public void loginTestqweq() {
+     public void loginTest() {
         //получение доступа к методам класса LoginPage для взаимодействия с элементами страницы
         //значение login/password берутся из файла настроек по аналогии с chromedriver
         //и loginpage
